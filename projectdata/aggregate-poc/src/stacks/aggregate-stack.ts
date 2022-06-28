@@ -4,6 +4,7 @@ import { Construct } from 'constructs';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as appsync from '@aws-cdk/aws-appsync-alpha';
+import { aws_events as events } from 'aws-cdk-lib';
 import * as path from 'path';
 
 /**
@@ -79,11 +80,25 @@ export class AggregateStack extends Stack {
       timeout: Duration.seconds(10),
     });
 
+    const eventBus = new events.EventBus(this, 'LogBus', {
+      eventBusName: 'AmplifyEventSourceBus'
+    });
+    const writeBus = new events.EventBus(this, 'WriteBus', {
+      eventBusName: 'AmplifySecondaryWriteBus'
+    });
+
     // Generate Resolvers and DataSources to configure the API
     const moviesDataSource = api.addDynamoDbDataSource('MoviesDataSource', moviesTable);
     const aggregatesDataSource = api.addDynamoDbDataSource('AggregatesDataSource', aggregatesTable);
     const computeAggregatesDataSource = api.addLambdaDataSource('ComputeAggregatesDataSource', computeAggregatesFunction);
-    
+    const logEventDataSource = api.addHttpDataSource('EventBridgeUSWest2', "https://events.us-west-2.amazonaws.com", {
+      name: 'EventLog',
+      authorizationConfig: {
+        signingRegion: 'us-west-2',
+        signingServiceName: 'events',
+      },
+    });
+
     moviesDataSource.createResolver({
       typeName: 'Query',
       fieldName: 'moviesByYearLetter',
@@ -102,6 +117,11 @@ export class AggregateStack extends Stack {
       typeName: 'Mutation',
       fieldName: 'putMovie',
       pipelineConfig: [
+        logEventDataSource.createFunction({
+          name: 'SendLogEvent',
+          requestMappingTemplate: getMappingTemplate('putMovie.LogEvent.req.vtl'),
+          responseMappingTemplate: getMappingTemplate('putMovie.LogEvent.res.vtl'),
+        }),
         moviesDataSource.createFunction({
           name: 'PersistMovie',
           requestMappingTemplate: getMappingTemplate('putMovie.Function1.req.vtl'),
@@ -111,6 +131,11 @@ export class AggregateStack extends Stack {
           name: 'ComputeAggregates',
           requestMappingTemplate: getMappingTemplate('putMovie.Function2.req.vtl'),
           responseMappingTemplate: getMappingTemplate('putMovie.Function2.res.vtl'),
+        }),
+        logEventDataSource.createFunction({
+          name: 'SecondaryWriteEvent',
+          requestMappingTemplate: getMappingTemplate('putMovie.SecondaryWriteEvent.req.vtl'),
+          responseMappingTemplate: getMappingTemplate('putMovie.SecondaryWriteEvent.res.vtl'),
         }),
       ],
       requestMappingTemplate: getMappingTemplate('putMovie.before.vtl'),
@@ -126,5 +151,7 @@ export class AggregateStack extends Stack {
     aggregatesTable.grantReadWriteData(computeAggregatesFunction);
     aggregatesTable.grantReadWriteData(computeAggregatesDataSource);
     aggregatesTable.grantReadWriteData(aggregatesDataSource);
+    eventBus.grantPutEventsTo(logEventDataSource);
+    writeBus.grantPutEventsTo(logEventDataSource);
   }
 }
