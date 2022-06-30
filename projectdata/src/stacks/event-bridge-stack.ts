@@ -5,36 +5,28 @@ import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as appsync from '@aws-cdk/aws-appsync-alpha';
 import { aws_events as events } from 'aws-cdk-lib';
-import * as path from 'path';
 import * as eventbridge from 'aws-cdk-lib/aws-events';
 import * as targets from 'aws-cdk-lib/aws-events-targets';
 import * as sqs from 'aws-cdk-lib/aws-sqs';
 import { MappingTemplate } from '@aws-cdk/aws-appsync-alpha';
+import { getSchema, getLambdaCode, getMappingTemplate } from '../utils/resource-paths';
 
 /**
- * Helpers to compute resource files into cdk objects.
+ * TK
  */
-const getResourcePath = (resourceType: string, resourceName: string) => path.join(__dirname, '..', '..', 'resources', resourceType, resourceName);
-const getMappingTemplate = (fileName: string): appsync.MappingTemplate => appsync.MappingTemplate.fromFile(getResourcePath('resolver', fileName));
-const getSchema = (fileName: string): appsync.Schema => appsync.Schema.fromAsset(getResourcePath('schema', fileName));
-const getLambdaCode = (lambdaName: string): any => lambda.Code.fromAsset(getResourcePath('lambda', `${lambdaName}.lambda.zip`));
-/**
- * AggregateStack vends an AppSync API, which can store and compute aggregates over a set of known queries.
- */
-export class AggregateStack extends Stack {
+export class EventBridgeStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
     // Create AppSync API
-    const api = new appsync.GraphqlApi(this, 'MoviesApi', {
-      name: 'movies',
-      schema: getSchema('schema.graphql'),
-      authorizationConfig: {
-        defaultAuthorization: { authorizationType: appsync.AuthorizationType.API_KEY },
-      },
-      xrayEnabled: true,
-    });
-
+    const api = new appsync.GraphqlApi(this, 'AddressBookAPI', {
+        name: 'address-book-event-bridge',
+        schema: getSchema('addressBook.graphql'),
+        authorizationConfig: {
+          defaultAuthorization: { authorizationType: appsync.AuthorizationType.API_KEY },
+        },
+        xrayEnabled: true,
+      });
     // Create DDB Table for storing Movies
     const moviesTable = new dynamodb.Table(this, 'MoviesTable', {
       partitionKey: { name: 'year', type: dynamodb.AttributeType.NUMBER },
@@ -97,7 +89,7 @@ export class AggregateStack extends Stack {
 
     // Generate EventBridge to connect things together
     const eventBus = new eventbridge.EventBus(this, 'AggregateEventBus');
-    
+
     const triggerEventBus = new lambda.Function(this, 'TriggerBusEvent', {
       runtime: lambda.Runtime.NODEJS_16_X,
       code: getLambdaCode('eventBusDemo'),
@@ -131,7 +123,7 @@ export class AggregateStack extends Stack {
       eventBus,
     });
 
-    const eventBus = new events.EventBus(this, 'LogBus', {
+    const logBus = new events.EventBus(this, 'LogBus', {
       eventBusName: 'AmplifyEventSourceBus'
     });
     const writeBus = new events.EventBus(this, 'WriteBus', {
@@ -152,7 +144,6 @@ export class AggregateStack extends Stack {
 
     const triggerEventDataSource = api.addLambdaDataSource('TriggereEventDataSource', triggerEventBus);
     const aggregateSearchDataSource = api.addLambdaDataSource('AggregateSearchDataSource', aggregateSearchFunction);
-    
     moviesDataSource.createResolver({
       typeName: 'Query',
       fieldName: 'moviesByYearLetter',
@@ -220,7 +211,7 @@ export class AggregateStack extends Stack {
     aggregatesTable.grantReadWriteData(computeAggregatesFunction);
     aggregatesTable.grantReadWriteData(computeAggregatesDataSource);
     aggregatesTable.grantReadWriteData(aggregatesDataSource);
-    eventBus.grantPutEventsTo(logEventDataSource);
+    logBus.grantPutEventsTo(logEventDataSource);
     writeBus.grantPutEventsTo(logEventDataSource);
   }
 }

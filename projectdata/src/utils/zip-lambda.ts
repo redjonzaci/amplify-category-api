@@ -2,12 +2,13 @@
 import * as path from 'path';
 import * as JSZip from 'jszip';
 import * as fs from 'fs';
+import { getResourcePath } from './resource-paths';
 
 /**
  * Zip up a lambda folder, and return the path to the zip file.
  */
 export const zipLambdas = async (): Promise<void> => {
-  const lambdaResourcesDirectory = path.join(__dirname, '..', '..', 'resources', 'lambda');
+  const lambdaResourcesDirectory = getResourcePath('lambda');
 
   const folderNames = fs.readdirSync(lambdaResourcesDirectory).filter(name => name !== '.DS_Store' && !name.match(/\.lambda\.zip/));
 
