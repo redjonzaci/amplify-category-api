@@ -1,0 +1,24 @@
+type Todo {
+	id: ID!
+	Name: String!
+}
+
+type Mutation {
+	createTodo(Name: String!): Todo
+}
+
+type Query {
+	moviesByYearLetter(year: Int!, letter1: String!, letter2: String!): [Movie]
+	count_moviesByYearLetter(model: String!, queryExpression: String!): Aggregate
+	movieAggregateSearch(
+		aggregateField: String!,
+		partitionKeyComparison: PartitionKeyComparison!,
+		sortKeyComparison: Comparison,
+		filterComparisons: [Comparison]
+	): Aggregate
+}
+
+schema {
+	query: Query
+	mutation: Mutation
+}
