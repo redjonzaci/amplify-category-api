@@ -1,0 +1,23 @@
+{
+  "method": "POST",
+  "resourcePath": "/",
+  "params":{
+      "headers": {
+          "X-Amz-Target": "AWSEvents.PutEvents",
+          "Content-Type": "application/json"
+      },
+      "body": $util.toJson({
+          "Entries": [
+            {
+              "Source": "appsync.amazonaws.com",
+              "EventBusName": "AmplifyEventSourceBus",
+              "Detail": $util.toJson({
+                "model": "Movie",
+                "operation": "Put",
+                "arguments": $ctx.args
+              })
+            }
+          ]
+      })
+  }
+}
