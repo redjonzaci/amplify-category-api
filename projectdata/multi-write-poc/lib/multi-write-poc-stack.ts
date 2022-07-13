@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Duration, RemovalPolicy, Stack, StackProps, Token, aws_events as events } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
@@ -7,8 +8,8 @@ import * as path from 'path';
 import * as eventbridge from 'aws-cdk-lib/aws-events';
 import * as targets from 'aws-cdk-lib/aws-events-targets';
 import * as sqs from 'aws-cdk-lib/aws-sqs';
-import { MappingTemplate } from '@aws-cdk/aws-appsync-alpha';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
+import { EventbridgeToKinesisFirehoseToS3, EventbridgeToKinesisFirehoseToS3Props } from '@aws-solutions-constructs/aws-eventbridge-kinesisfirehose-s3';
+
 
 /**
  * Helpers to compute resource files into cdk objects.
@@ -41,19 +42,52 @@ export class MultiWritePocStack extends Stack {
     });
 
     const logBus = new events.EventBus(this, 'LogBus', {
-      eventBusName: 'AmplifyEventSourceBus'
+      eventBusName: 'AmplifyEventSourceBus',
     });
     const writeBus = new events.EventBus(this, 'WriteBus', {
-      eventBusName: 'AmplifySecondaryWriteBus'
+      eventBusName: 'AmplifySecondaryWriteBus',
     });
 
-    const moviesDataSource = api.addDynamoDbDataSource('MoviesDataSource', todoTable);
-    const logEventDataSource = api.addHttpDataSource('EventBridgeUSWest2', "https://events.us-west-2.amazonaws.com", {
+    const todoDataSource = api.addDynamoDbDataSource('TodoDataSource', todoTable);
+    const logEventDataSource = api.addHttpDataSource('EventBridgeUSWest2', 'https://events.us-west-2.amazonaws.com', {
       name: 'EventLog',
       authorizationConfig: {
-        signingRegion: 'us-west-2',
+        signingRegion: 'us-east-1',
         signingServiceName: 'events',
       },
     });
+
+    api.createResolver({
+      typeName: 'Mutation',
+      fieldName: 'putMovie',
+      pipelineConfig: [
+        logEventDataSource.createFunction({
+          name: 'SendLogEvent',
+          requestMappingTemplate: getMappingTemplate('createTodo.LogEvent.req.vtl'),
+          responseMappingTemplate: getMappingTemplate('createTodo.LogEvent.res.vtl'),
+        }),
+        todoDataSource.createFunction({
+          name: 'PersistMovie',
+          requestMappingTemplate: getMappingTemplate('createTodo.Function1.req.vtl'),
+          responseMappingTemplate: getMappingTemplate('createTodo.Function1.res.vtl'),
+        }),
+        logEventDataSource.createFunction({
+          name: 'SecondaryWriteEvent',
+          requestMappingTemplate: getMappingTemplate('createTodo.SecondaryWriteEvent.req.vtl'),
+          responseMappingTemplate: getMappingTemplate('createTodo.SecondaryWriteEvent.res.vtl'),
+        }),
+      ],
+      requestMappingTemplate: getMappingTemplate('putMovie.before.vtl'),
+      responseMappingTemplate: getMappingTemplate('putMovie.after.vtl'),
+    });
+
+    const EventbridgeToKinesisFirehoseToS3Props: EventbridgeToKinesisFirehoseToS3Props = {
+      eventRuleProps: {
+        schedule: events.Schedule.rate(Duration.minutes(5))
+      },
+      existingEventBusInterface: logBus,
+    };
+
+    const firehoseBackup = new EventbridgeToKinesisFirehoseToS3(this, 'test-eventbridge-firehose-s3', EventbridgeToKinesisFirehoseToS3Props);
   }
 }
