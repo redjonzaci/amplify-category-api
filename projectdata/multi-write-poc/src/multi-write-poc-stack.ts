@@ -1,11 +1,10 @@
 /* eslint-disable */
-import { Duration, RemovalPolicy, Stack, StackProps, Token, aws_events as events } from 'aws-cdk-lib';
+import { Duration, RemovalPolicy, Stack, StackProps, Token, aws_events as events, aws_elasticsearch as elasticsearch, aws_iam as iam } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as appsync from '@aws-cdk/aws-appsync-alpha';
 import * as path from 'path';
-import * as eventbridge from 'aws-cdk-lib/aws-events';
 import * as targets from 'aws-cdk-lib/aws-events-targets';
 import * as sqs from 'aws-cdk-lib/aws-sqs';
 import { EventbridgeToKinesisFirehoseToS3, EventbridgeToKinesisFirehoseToS3Props } from '@aws-solutions-constructs/aws-eventbridge-kinesisfirehose-s3';
@@ -89,5 +88,35 @@ export class MultiWritePocStack extends Stack {
     };
 
     const firehoseBackup = new EventbridgeToKinesisFirehoseToS3(this, 'test-eventbridge-firehose-s3', EventbridgeToKinesisFirehoseToS3Props);
+
+    const elasticInstance = new elasticsearch.CfnDomain(this, 'SecondaryElastic', {
+      domainName: "SecondaryElastic",
+      elasticsearchVersion: "7.10",
+      elasticsearchClusterConfig: {
+        instanceType: "t3.medium.search",
+        instanceCount: 1
+      }
+    });
+
+    const elasticWriteFunction = new lambda.Function(this, 'ElasticSecondaryWrite', {
+      runtime: lambda.Runtime.NODEJS_16_X,
+      code: getLambdaCode('writeToElastic'),
+      handler: 'index.handler',
+      timeout: Duration.seconds(10),
+      tracing: lambda.Tracing.ACTIVE,
+      initialPolicy: [new iam.PolicyStatement({
+        principals: [new iam.AnyPrincipal()],
+        actions: ['es:*'],
+        resources: [elasticInstance.attrArn]
+      })],
+    });
+
+    const elasticWriteRule = new events.Rule(this, 'TriggerLambda', {
+      eventPattern: { source: ['custom.myATMapp'] },
+      targets: [new targets.LambdaFunction(elasticWriteFunction, {
+        retryAttempts: 3,
+      })],
+      eventBus: logBus,
+    });
   }
 }

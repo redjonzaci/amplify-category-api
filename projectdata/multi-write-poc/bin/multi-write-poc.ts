@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
-import { MultiWritePocStack } from '../lib/multi-write-poc-stack';
+import { MultiWritePocStack } from '../src/multi-write-poc-stack';
 
 const app = new cdk.App();
 new MultiWritePocStack(app, 'MultiWritePocStack', {
