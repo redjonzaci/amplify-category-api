@@ -38,6 +38,8 @@ import { PrimaryKeyDirectiveConfiguration } from './types';
 import {
   validateNotSelfReferencing,
   validateNotOwnerAuth,
+  isCPKFeatureEnabled,
+  cpkFeatureFlagName
 } from './utils';
 
 const directiveName = 'primaryKey';
@@ -116,6 +118,7 @@ function validate(config: PrimaryKeyDirectiveConfiguration, ctx: TransformerCont
   const { object, field, sortKeyFields } = config;
 
   validateNotSelfReferencing(config);
+  validateCPKFeatureFlag(ctx);
 
   const modelDirective = object.directives!.find(directive => {
     return directive.name.value === 'model';
@@ -179,5 +182,13 @@ function validate(config: PrimaryKeyDirectiveConfiguration, ctx: TransformerCont
     }
 
     config.sortKey.push(sortField);
+  }
+}
+
+// Checks if DataStore is enabled and CPK Feature Flag is true. Throws a warning otherwise.
+const validateCPKFeatureFlag = (ctx: TransformerContextProvider) => {
+  const isDataStoreEnabled = ctx.isProjectUsingDataStore();
+  if(isDataStoreEnabled && !isCPKFeatureEnabled(ctx)) {
+    console?.warn(`WARNING: Your schema has a custom primary key but the Feature Flag "${cpkFeatureFlagName}" is disabled. Check the value in your "amplify/cli.json" file, change it to "true" and re-run.`);
   }
 }

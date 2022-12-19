@@ -110,3 +110,10 @@ export const generateKeyAndQueryNameForConfig = (config: IndexDirectiveConfigura
   const { sortKeyFields } = config;
   return `${toLower(pluralize(modelName))}By${[fieldName, ...sortKeyFields].map(toUpper).join('And')}`;
 };
+
+export const cpkFeatureFlagName = 'respectPrimaryKeyAttributesOnConnectionField';
+
+// Read the CPK Feature flag
+export const isCPKFeatureEnabled = (ctx: TransformerContextProvider): boolean => {
+  return ctx.featureFlags.getBoolean(cpkFeatureFlagName);
+};
