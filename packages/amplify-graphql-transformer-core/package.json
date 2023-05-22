@@ -42,7 +42,7 @@
     "vm2": "^3.9.8"
   },
   "peerDependencies": {
-    "@aws-amplify/amplify-cli-core": "4.0.4"
+    "@aws-amplify/amplify-cli-core": "4.1.0-yarn-berry.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^8.0.1",
