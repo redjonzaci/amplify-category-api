@@ -61,16 +61,16 @@
     xcode "^2.1.0"
     yargs "^15.1.0"
 
-"@aws-amplify/amplify-appsync-simulator@^2.11.0":
-  version "2.12.0"
-  resolved "https://registry.npmjs.org/@aws-amplify/amplify-appsync-simulator/-/amplify-appsync-simulator-2.12.0.tgz#f9734ad60ae79bd8ecc9ff7f8ecd28bca51323a1"
-  integrity sha512-ML/7wENtFopBCCB2eZFcIj1yYsbvpyGwwBH4pFsPaN1PL1xqklJ+vYusdJsHtJnt5oHDm8Z31nnk24RXLhjADg==
+"@aws-amplify/amplify-appsync-simulator@^2.12.1-yarn-berry.0":
+  version "2.12.1-yarn-berry.0"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/amplify-appsync-simulator/-/amplify-appsync-simulator-2.12.1-yarn-berry.0.tgz#47e73817a3d56ce18bb393fdbb00fff6ec079651"
+  integrity sha512-522T8U70NZKiB7DxlSWs+6DMJcP3FXbn85w/IxEydz5ICRJTwZXvdt+7HDXq5s/CZm7STEOiWvqBH0WfQBe8Zg==
   dependencies:
-    "@aws-amplify/amplify-cli-core" "4.0.5"
-    "@aws-amplify/amplify-prompts" "2.7.0"
+    "@aws-amplify/amplify-cli-core" "4.1.0-yarn-berry.0"
+    "@aws-amplify/amplify-prompts" "2.7.1-yarn-berry.0"
     "@graphql-tools/schema" "^8.3.1"
     "@graphql-tools/utils" "^8.5.1"
-    amplify-velocity-template "1.4.11"
+    amplify-velocity-template "1.4.12-yarn-berry.0"
     aws-sdk "^2.1354.0"
     chalk "^4.1.1"
     cors "^2.8.5"
@@ -94,13 +94,13 @@
     uuid "^8.3.2"
     ws "^8.5.0"
 
-"@aws-amplify/amplify-category-custom@3.0.5":
-  version "3.0.5"
-  resolved "https://registry.npmjs.org/@aws-amplify/amplify-category-custom/-/amplify-category-custom-3.0.5.tgz#aeadc7d5aeeb090ccddf53822cab008a4b628200"
-  integrity sha512-rMwONHuGyCCnYtNhDgSx3fSSLxwlfZcB622PnIlE2xiH/WGMnh3AjrEkCA1wpEueRzYCiO3oo+wgrnuVnVD8Rg==
+"@aws-amplify/amplify-category-custom@3.1.0-yarn-berry.0":
+  version "3.1.0-yarn-berry.0"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/amplify-category-custom/-/amplify-category-custom-3.1.0-yarn-berry.0.tgz#8def900b009760afdfcb080b9d298862ecc4d8a4"
+  integrity sha512-7uBAfsXz3LwiV/ysGxp3T0IsRXQciUQMYVkH7XTn/TzAUdoIK/kyQiYBhFVhldrU7NOb3art7xF+QL3LfOR4ew==
   dependencies:
-    "@aws-amplify/amplify-cli-core" "4.0.5"
-    "@aws-amplify/amplify-prompts" "2.7.0"
+    "@aws-amplify/amplify-cli-core" "4.1.0-yarn-berry.0"
+    "@aws-amplify/amplify-prompts" "2.7.1-yarn-berry.0"
     aws-cdk-lib "~2.68.0"
     execa "^5.1.1"
     fs-extra "^8.1.0"
@@ -108,15 +108,15 @@
     ora "^4.0.3"
     uuid "^8.3.2"
 
-"@aws-amplify/amplify-category-function@^5.2.0":
-  version "5.3.0"
-  resolved "https://registry.npmjs.org/@aws-amplify/amplify-category-function/-/amplify-category-function-5.3.0.tgz#1ebb2be6ebb3a2c5c0a58e087e15bcaea05e795b"
-  integrity sha512-fUX9dT9jIpNLbscrfKkxcSBSXjQ5Q/5dQzy78bpqBrJAcEODE6TTNH+/WiuXdKVtiJTq9GmyrDy28tVvVjfy+A==
+"@aws-amplify/amplify-category-function@^5.4.0-yarn-berry.0":
+  version "5.4.0-yarn-berry.0"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/amplify-category-function/-/amplify-category-function-5.4.0-yarn-berry.0.tgz#e65cfdb4277fcd18fea1d5e9f60c3e580fc32b3f"
+  integrity sha512-byH4ZjcvetKoEwvld9wFYK968BhVZ23O/11wYEIdkzYBMUh2Hzsj2RWSJDfCW1sMicAeIrLfunrXUywbUfUhUw==
   dependencies:
-    "@aws-amplify/amplify-cli-core" "4.0.5"
-    "@aws-amplify/amplify-environment-parameters" "1.6.0"
-    "@aws-amplify/amplify-function-plugin-interface" "1.10.2"
-    "@aws-amplify/amplify-prompts" "2.7.0"
+    "@aws-amplify/amplify-cli-core" "4.1.0-yarn-berry.0"
+    "@aws-amplify/amplify-environment-parameters" "1.6.1-yarn-berry.0"
+    "@aws-amplify/amplify-function-plugin-interface" "1.10.3-yarn-berry.0"
+    "@aws-amplify/amplify-prompts" "2.7.1-yarn-berry.0"
     archiver "^5.3.0"
     aws-sdk "^2.1354.0"
     chalk "^4.1.1"
@@ -133,32 +133,59 @@
     promise-sequential "^1.1.1"
     uuid "^8.3.2"
 
-"@aws-amplify/amplify-cli-core@4.0.4", "@aws-amplify/amplify-cli-core@4.0.5":
-  version "4.0.4"
-  resolved "https://registry.npmjs.org/@aws-amplify/amplify-cli-core/-/amplify-cli-core-4.0.4.tgz#6c00c3e847a39c2627e6f62375863d655ed5eedc"
-  integrity sha512-LwHV9e1Q+wSddYr9rHl1TXU9DBRePy3C6ewCMqdRAY0ys2qp6loyyZbU+eppHBTubpxE+/nrc42Im2uii//MzQ==
+"@aws-amplify/amplify-cli-core@4.0.5", "@aws-amplify/amplify-cli-core@4.1.0-yarn-berry.0":
+  version "4.1.0-yarn-berry.0"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/amplify-cli-core/-/amplify-cli-core-4.1.0-yarn-berry.0.tgz#5408c9b14dd2e3f7189123b50e7c7bd8b58f9a74"
+  integrity sha512-izPkBk7YQ9mXEuk2qFZs/4MSqRQaT5iS8nW/0FYT+hY1lUjDmZGsiKw9yW5WKB++VPW7492PDWW8vqia+ioMwQ==
   dependencies:
-    amplify-cli-core "4.0.4"
+    "@aws-amplify/amplify-cli-logger" "1.3.3-yarn-berry.0"
+    "@aws-amplify/amplify-prompts" "2.7.1-yarn-berry.0"
+    "@aws-amplify/graphql-transformer-interfaces" "^2.1.1"
+    "@yarnpkg/lockfile" "^1.1.0"
+    ajv "^6.12.6"
+    aws-cdk-lib "~2.68.0"
+    chalk "^4.1.1"
+    ci-info "^2.0.0"
+    cli-table3 "^0.6.0"
+    cloudform-types "^4.2.0"
+    colors "1.4.0"
+    dotenv "^8.2.0"
+    ejs "^3.1.7"
+    execa "^5.1.1"
+    fs-extra "^8.1.0"
+    globby "^11.0.3"
+    hjson "^3.2.1"
+    inquirer "^7.3.3"
+    js-yaml "^4.0.0"
+    lodash "^4.17.21"
+    node-fetch "^2.6.7"
+    open "^8.4.0"
+    ora "^4.0.3"
+    proxy-agent "^5.0.0"
+    semver "^7.3.5"
+    typescript-json-schema "~0.52.0"
+    which "^2.0.2"
+    yaml "^2.2.2"
 
-"@aws-amplify/amplify-cli-logger@1.3.2":
-  version "1.3.2"
-  resolved "https://registry.npmjs.org/@aws-amplify/amplify-cli-logger/-/amplify-cli-logger-1.3.2.tgz#802667e38276361b78d138a770f6e9f1a009d3a3"
-  integrity sha512-dQ7Dwh2MNIjhnqx+c48aDjsrsTMU391n23sF5fRyxoC+tmxvaMbz3N3g6XeciwNb1OB5zMBI5zCAjbm94k1S+A==
+"@aws-amplify/amplify-cli-logger@1.3.3-yarn-berry.0":
+  version "1.3.3-yarn-berry.0"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/amplify-cli-logger/-/amplify-cli-logger-1.3.3-yarn-berry.0.tgz#a92329f04ed677f070a32a206025d9c2c658c029"
+  integrity sha512-1ycr4kKIuP0y1g+eh2q+TyQMDC/2UNBx5tdbm+QF2+m9l5Yi26SDDODQjusGwwTChSE2uPMSAoEy0DWjBY3f7Q==
   dependencies:
     winston "^3.3.3"
     winston-daily-rotate-file "^4.5.0"
 
-"@aws-amplify/amplify-cli-shared-interfaces@1.2.2":
-  version "1.2.2"
-  resolved "https://registry.npmjs.org/@aws-amplify/amplify-cli-shared-interfaces/-/amplify-cli-shared-interfaces-1.2.2.tgz#e717ef421379837519ed6cba42226874574fe505"
-  integrity sha512-iZZAhfPUBRZr5b4S5YnpN98oYQfZSMMxo0J/fpDQ7mh3CFOGdWcg6vIU3M9tqGZWUNYi3P0MkzreOgDE+9yJ6A==
+"@aws-amplify/amplify-cli-shared-interfaces@1.2.3-yarn-berry.0":
+  version "1.2.3-yarn-berry.0"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/amplify-cli-shared-interfaces/-/amplify-cli-shared-interfaces-1.2.3-yarn-berry.0.tgz#829add667e75c9f2b24836e6785e92d714da1934"
+  integrity sha512-Q2I391ezms07XMMsY4f902jrIcmdX3WXGGPtIAercws0dsof7bLxvQn7IZO1Yl1jGvgb+sYYOhYJnGHVEsJhSg==
 
-"@aws-amplify/amplify-environment-parameters@1.6.0":
-  version "1.6.0"
-  resolved "https://registry.npmjs.org/@aws-amplify/amplify-environment-parameters/-/amplify-environment-parameters-1.6.0.tgz#9e3c3b36f4b80a85a9d9e3a385667db52b8429ad"
-  integrity sha512-J6r8KBv5rNpte4ijfw5P/veQRZRKuehBdgrDhHoukaEBgis5YRilGIkCyYVHc6Pqzw40i9bOEMY7lzH7vct+sw==
+"@aws-amplify/amplify-environment-parameters@1.6.1-yarn-berry.0":
+  version "1.6.1-yarn-berry.0"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/amplify-environment-parameters/-/amplify-environment-parameters-1.6.1-yarn-berry.0.tgz#6880f92b1078135bb53300ec4d17836ba7c43c19"
+  integrity sha512-Hb5YSFUQB/id84LN7M/hMwj6i+v7qg7VsefRlnqKu3eaGo422oWDl2bI8oJA6oIbrjGRZsBZKxT4seNtXilrDA==
   dependencies:
-    "@aws-amplify/amplify-cli-core" "4.0.5"
+    "@aws-amplify/amplify-cli-core" "4.1.0-yarn-berry.0"
     ajv "^6.12.6"
     lodash "^4.17.21"
 
@@ -211,37 +238,35 @@
   resolved "https://registry.npmjs.org/@aws-amplify/amplify-function-plugin-interface/-/amplify-function-plugin-interface-1.10.2.tgz#b1858a2ab1e91eeceedff875c55e53c8cf0b024d"
   integrity sha512-DpICFvYznkLR0+2O3yq2ZK3ntTUM6tp57CGi3HTWwmFs78cKMfUC0VFoKLBCzcRfZ3PsaHdL5cdHaEWwgxH4cQ==
 
-"@aws-amplify/amplify-prompts@2.6.8":
-  version "2.6.8"
-  resolved "https://registry.npmjs.org/@aws-amplify/amplify-prompts/-/amplify-prompts-2.6.8.tgz#9f5975ffa76d4ea3187b053f39c0d99e96d0d342"
-  integrity sha512-s3xtMgVOWlxyIPPTXF1s1BD/4r7jTEO1vsPEc//HrlB3hPJdZ6cKrDb3cXsbkGUJnrmU6UwEmManwNozrmKzWg==
-  dependencies:
-    amplify-prompts "2.6.8"
+"@aws-amplify/amplify-function-plugin-interface@1.10.3-yarn-berry.0":
+  version "1.10.3-yarn-berry.0"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/amplify-function-plugin-interface/-/amplify-function-plugin-interface-1.10.3-yarn-berry.0.tgz#f1eb6480f356dd242f3b250f1a88497d25222f07"
+  integrity sha512-zLYx0czJn6ItGDYjXMUdnEvvWMgwiigJ06fvH3ZXf5HN9DrTDuMXHCjNxtFgIrsvHG54LhbzV+V87I5s4kBm1Q==
 
-"@aws-amplify/amplify-prompts@2.7.0":
-  version "2.7.0"
-  resolved "https://registry.npmjs.org/@aws-amplify/amplify-prompts/-/amplify-prompts-2.7.0.tgz#7cc4ca52478c8a9e07d7db2dd792f4f708679ec3"
-  integrity sha512-d0SXGD4vxjcx68npbMH/XH9dvGtT2kA0i9/u5TZWK/ILfecDtSfa59/jmrStLJvMyv8rmo37GvhCs+6fd1L5WQ==
+"@aws-amplify/amplify-prompts@2.7.1-yarn-berry.0":
+  version "2.7.1-yarn-berry.0"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/amplify-prompts/-/amplify-prompts-2.7.1-yarn-berry.0.tgz#889a9ce5decd781e2f27c916151d8a77c7494f0f"
+  integrity sha512-IgLdCXxjAn1CLif1371+DyDAe7xqPSiQ44JZ683sBy/AKxjv7g5RA7Vmr3T9dOEYjLZ6Bk+koXfcOCb91iK4zA==
   dependencies:
-    "@aws-amplify/amplify-cli-shared-interfaces" "1.2.2"
+    "@aws-amplify/amplify-cli-shared-interfaces" "1.2.3-yarn-berry.0"
     chalk "^4.1.1"
     enquirer "^2.3.6"
 
-"@aws-amplify/amplify-provider-awscloudformation@^8.1.0":
-  version "8.2.0"
-  resolved "https://registry.npmjs.org/@aws-amplify/amplify-provider-awscloudformation/-/amplify-provider-awscloudformation-8.2.0.tgz#86c79e6487905bdcaab97dcbcea8455f2f67247d"
-  integrity sha512-z2KAZEKa7eJWckjsAYyVzn/rkT8JswMAWfHtITZ1DWV4m7tU1+wgKlC++26M1euVpQgVk812MSAc7CIuMb8vUg==
+"@aws-amplify/amplify-provider-awscloudformation@^8.3.0-yarn-berry.0":
+  version "8.3.0-yarn-berry.0"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/amplify-provider-awscloudformation/-/amplify-provider-awscloudformation-8.3.0-yarn-berry.0.tgz#0355eb6d2b3c4946058915053bed38d6619d45ab"
+  integrity sha512-gpaLw8zRWMXqQvRjrUZT9tvt9e578s8SuqRwT8ZHFBT2Gi61zzIxkz+KNXbJaH5YIdb/ebynpcG0d5Y+yWC9Eg==
   dependencies:
-    "@aws-amplify/amplify-category-custom" "3.0.5"
-    "@aws-amplify/amplify-cli-core" "4.0.5"
-    "@aws-amplify/amplify-cli-logger" "1.3.2"
-    "@aws-amplify/amplify-environment-parameters" "1.6.0"
-    "@aws-amplify/amplify-prompts" "2.7.0"
-    "@aws-amplify/amplify-util-import" "2.6.0"
-    "@aws-amplify/cli-extensibility-helper" "3.0.5"
+    "@aws-amplify/amplify-category-custom" "3.1.0-yarn-berry.0"
+    "@aws-amplify/amplify-cli-core" "4.1.0-yarn-berry.0"
+    "@aws-amplify/amplify-cli-logger" "1.3.3-yarn-berry.0"
+    "@aws-amplify/amplify-environment-parameters" "1.6.1-yarn-berry.0"
+    "@aws-amplify/amplify-prompts" "2.7.1-yarn-berry.0"
+    "@aws-amplify/amplify-util-import" "2.6.1-yarn-berry.0"
+    "@aws-amplify/cli-extensibility-helper" "3.0.6-yarn-berry.0"
     "@aws-amplify/graphql-transformer-core" "^1.2.1"
     "@aws-amplify/graphql-transformer-interfaces" "^2.1.1"
-    amplify-codegen "^3.4.3"
+    amplify-codegen "^3.4.4"
     archiver "^5.3.0"
     aws-cdk-lib "~2.68.0"
     aws-sdk "^2.1354.0"
@@ -275,10 +300,10 @@
     vm2 "^3.9.16"
     xstate "^4.14.0"
 
-"@aws-amplify/amplify-util-import@2.6.0":
-  version "2.6.0"
-  resolved "https://registry.npmjs.org/@aws-amplify/amplify-util-import/-/amplify-util-import-2.6.0.tgz#b2c40f3bbb760283d6d46c29f885bdc449000266"
-  integrity sha512-97H6m+5qh+v8IezCXWRDVspSR9oWpHsli9BqLjYmxoG41v+GPrXjO5KnB5gySPwFmgOvPw/r0MHRAjEYGIkaOg==
+"@aws-amplify/amplify-util-import@2.6.1-yarn-berry.0":
+  version "2.6.1-yarn-berry.0"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/amplify-util-import/-/amplify-util-import-2.6.1-yarn-berry.0.tgz#7a8f235d13575f81b62ed741fcb4fa9ab28a6efb"
+  integrity sha512-W6CK1q++pVBm8vQDPpCNUjLexBjpb+e4KZu1gDaKwNit0hQrYP+sE8qsiQ/nFjyKFEGm5F/IchiUf/7l+25c4Q==
   dependencies:
     aws-sdk "^2.1354.0"
 
@@ -361,13 +386,13 @@
   dependencies:
     "@aws-amplify/core" "4.7.15"
 
-"@aws-amplify/cli-extensibility-helper@3.0.5":
-  version "3.0.5"
-  resolved "https://registry.npmjs.org/@aws-amplify/cli-extensibility-helper/-/cli-extensibility-helper-3.0.5.tgz#ce4dc3ec493fcf99a8a849f40e52442cc229235a"
-  integrity sha512-Nmt8SwwjM1yRAtNByTy78IeoeKbC3IxlmuZ7MKtGf7Anldq+7X2xnurwubIitpZUWr6z8lHetU+I0CNWTxVOHA==
+"@aws-amplify/cli-extensibility-helper@3.0.6-yarn-berry.0":
+  version "3.0.6-yarn-berry.0"
+  resolved "https://registry.yarnpkg.com/@aws-amplify/cli-extensibility-helper/-/cli-extensibility-helper-3.0.6-yarn-berry.0.tgz#39a8a4f8e451a41da64d4845c5b973b276e5e27d"
+  integrity sha512-Q5Vw5tUIDSg/AMyzUAt9GoeTmT1TbSXOBI0Rxlbrm/3+ZdcXeiDyykomJI/qj0Yp6G7O4MwfNEzeQkusv6wT5g==
   dependencies:
-    "@aws-amplify/amplify-category-custom" "3.0.5"
-    "@aws-amplify/amplify-cli-core" "4.0.5"
+    "@aws-amplify/amplify-category-custom" "3.1.0-yarn-berry.0"
+    "@aws-amplify/amplify-cli-core" "4.1.0-yarn-berry.0"
     aws-cdk-lib "~2.68.0"
 
 "@aws-amplify/core@4.7.15":
@@ -7487,41 +7512,7 @@ amazon-cognito-identity-js@5.2.14:
     isomorphic-unfetch "^3.0.0"
     js-cookie "^2.2.1"
 
-amplify-cli-core@4.0.4:
-  version "4.0.4"
-  resolved "https://registry.npmjs.org/amplify-cli-core/-/amplify-cli-core-4.0.4.tgz#02fef5a69753814d1c85b04ba1c9eafea7eea010"
-  integrity sha512-gnbBNcbuB9CisbVn1PfXjc38EyhywtqA3UgYPUPBx+u/zgJU48npAi5VHJUxY+d+PPFnQW5UPgnHAZAp5OA8Eg==
-  dependencies:
-    "@aws-amplify/amplify-cli-logger" "1.3.2"
-    "@aws-amplify/amplify-prompts" "2.6.8"
-    "@aws-amplify/graphql-transformer-interfaces" "^2.1.1"
-    "@yarnpkg/lockfile" "^1.1.0"
-    ajv "^6.12.6"
-    aws-cdk-lib "~2.68.0"
-    chalk "^4.1.1"
-    ci-info "^2.0.0"
-    cli-table3 "^0.6.0"
-    cloudform-types "^4.2.0"
-    colors "1.4.0"
-    dotenv "^8.2.0"
-    ejs "^3.1.7"
-    execa "^5.1.1"
-    fs-extra "^8.1.0"
-    globby "^11.0.3"
-    hjson "^3.2.1"
-    inquirer "^7.3.3"
-    js-yaml "^4.0.0"
-    lodash "^4.17.21"
-    node-fetch "^2.6.7"
-    open "^8.4.0"
-    ora "^4.0.3"
-    proxy-agent "^5.0.0"
-    semver "^7.3.5"
-    typescript-json-schema "~0.52.0"
-    which "^2.0.2"
-    yaml "^2.2.1"
-
-amplify-codegen@^3.4.3:
+amplify-codegen@^3.4.3, amplify-codegen@^3.4.4:
   version "3.4.4"
   resolved "https://registry.npmjs.org/amplify-codegen/-/amplify-codegen-3.4.4.tgz#3ab60344932dc4209f7b698f6fbb6f6c888c65b8"
   integrity sha512-cz5XcQcn+wgnoMpAVmFeHyk7OZl4gyvUSLyj3iv8bby8cc3wj3DkMabBikJvAYqdugR+bCYDMuYOEwkLwrmquA==
@@ -7548,10 +7539,10 @@ amplify-function-plugin-interface@^1.9.7:
   resolved "https://registry.npmjs.org/amplify-function-plugin-interface/-/amplify-function-plugin-interface-1.9.7.tgz#cd872a8c619f5b50661e7ca073fa59feaed12b28"
   integrity sha512-CMch7pWKtnEP8Y0OC8CTJ0vJSoT82yshG2e7dffkoxk29n7aeHgirMUFKgQ+MUFEXYsU+G5zJ4iksU/VtVQJ4w==
 
-amplify-headless-interface@1.17.3, amplify-headless-interface@^1.17.3:
-  version "1.17.3"
-  resolved "https://registry.npmjs.org/amplify-headless-interface/-/amplify-headless-interface-1.17.3.tgz#6e3acf34b1b432b2b44c63e5a0cf9a314b47b06f"
-  integrity sha512-jQGjrT717b772tEjVoJyqCNByUyVW/dExOiyQVAvyx12x1xHFwXEAZ3fz8wz60u9MxTUz6DXTTgcpWQpTxAUwA==
+amplify-headless-interface@1.17.4-ym-tagged-release.0, amplify-headless-interface@^1.17.4-yarn-berry.0:
+  version "1.17.4-ym-tagged-release.0"
+  resolved "https://registry.yarnpkg.com/amplify-headless-interface/-/amplify-headless-interface-1.17.4-ym-tagged-release.0.tgz#b45b2eb86f566f99a2ac41ed3afb55ab22c7df24"
+  integrity sha512-1+v/9NlWofpoAAHBeLWAHsnlSR4VXl/H3beANJmJULtwSqU9mIZEmzscHAXoVVBLOwTWFIqqAR8t3FF18OfMzQ==
 
 amplify-nodejs-function-runtime-provider@^2.3.17:
   version "2.4.0"
@@ -7565,19 +7556,10 @@ amplify-nodejs-function-runtime-provider@^2.3.17:
     fs-extra "^8.1.0"
     glob "^7.2.0"
 
-amplify-prompts@2.6.8:
-  version "2.6.8"
-  resolved "https://registry.npmjs.org/amplify-prompts/-/amplify-prompts-2.6.8.tgz#4eeee956eee7393b4bf932005f872a4681a568a3"
-  integrity sha512-piWttrnUwswHpVb6LPUlrAg3O24jaOJvLxzNBXu4VxkmB5ASKdHBIp2+EnujiGT3QkRDhkdLARw+MFuXfjnolA==
-  dependencies:
-    "@aws-amplify/amplify-cli-shared-interfaces" "1.2.2"
-    chalk "^4.1.1"
-    enquirer "^2.3.6"
-
-amplify-storage-simulator@^1.8.0:
-  version "1.9.0"
-  resolved "https://registry.npmjs.org/amplify-storage-simulator/-/amplify-storage-simulator-1.9.0.tgz#3877aca42a9fc1453e35aece3c55f8806bd3eca1"
-  integrity sha512-tqja3YHTBjqY+n+fQKcyVywnvHFYoeyxGcjgnTlv/BmRoEWXKb1y6AC5MyTp7bPBdTgJOPdT58J5B53wRcp20w==
+amplify-storage-simulator@^1.9.1-yarn-berry.0:
+  version "1.9.1-yarn-berry.0"
+  resolved "https://registry.yarnpkg.com/amplify-storage-simulator/-/amplify-storage-simulator-1.9.1-yarn-berry.0.tgz#3dc9647999b96de63b4da3d050917159be31ea8b"
+  integrity sha512-TUOwxj1GCtd0k6miSM9gO111bS/6ObQgTEN/NDkmL9y7+36xrpSe/ESYsOdXJH2GG7J8QwcUtWm+rLQTlpCmIw==
   dependencies:
     body-parser "^1.19.2"
     cors "^2.8.5"
@@ -7592,18 +7574,18 @@ amplify-storage-simulator@^1.8.0:
     xml "^1.0.1"
     xml-js "^1.6.11"
 
-amplify-util-headless-input@^1.9.12:
-  version "1.9.12"
-  resolved "https://registry.npmjs.org/amplify-util-headless-input/-/amplify-util-headless-input-1.9.12.tgz#5352e74d2668d0dd14fdf0b024ec07021dcf441d"
-  integrity sha512-QJLFY9T5UOTNUubG5TNjGxhmlD/Vwj4X5nlYxQO7dGxlwhziZlM0GgGWOpbSargGwjpbPkCx+ByUgrciljwayQ==
+amplify-util-headless-input@^1.9.13-yarn-berry.0:
+  version "1.9.13-ym-tagged-release.0"
+  resolved "https://registry.yarnpkg.com/amplify-util-headless-input/-/amplify-util-headless-input-1.9.13-ym-tagged-release.0.tgz#c4cd98da2ba94217f58af8f60eea806c03b24100"
+  integrity sha512-WUF91LoS+KR1J7th5GqZ6oSnCMTrAM4AO04kChqJubyNTDVuQG9EKIRNE3FAqfBJhasKS2kB0k2L1RKCW+wmhQ==
   dependencies:
     ajv "^6.12.6"
-    amplify-headless-interface "1.17.3"
+    amplify-headless-interface "1.17.4-ym-tagged-release.0"
 
-amplify-velocity-template@1.4.11:
-  version "1.4.11"
-  resolved "https://registry.npmjs.org/amplify-velocity-template/-/amplify-velocity-template-1.4.11.tgz#cf7ce4008059ab853ead02b97f0816030eaf275e"
-  integrity sha512-SyybQgASVOhwKE6QAW/MttUuzF9LlTDRSqfvJbU0cHwgaIQP/V8rUnwpHPql2nXc/4ji9b0etoH+tM8AU8zfmQ==
+amplify-velocity-template@1.4.12-yarn-berry.0:
+  version "1.4.12-yarn-berry.0"
+  resolved "https://registry.yarnpkg.com/amplify-velocity-template/-/amplify-velocity-template-1.4.12-yarn-berry.0.tgz#32c290d47144d532ce1b25fd6482751eb0527301"
+  integrity sha512-2VJnqLCQIiAo/epnSbFD02Tagu/jU+TbhJRbgXyYOfjfwPQcs7XkhnX0Xl4XwamKZ/CUReNCJjIH6XioiIVSpw==
   dependencies:
     lodash "^4.17.21"
 
@@ -19910,9 +19892,9 @@ yaml@1.10.2, yaml@^1.10.0, yaml@^1.10.2:
   resolved "https://registry.npmjs.org/yaml/-/yaml-1.10.2.tgz#2301c5ffbf12b467de8da2333a459e29e7920e4b"
   integrity sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==
 
-yaml@^2.2.1:
+yaml@^2.2.2:
   version "2.2.2"
-  resolved "https://registry.npmjs.org/yaml/-/yaml-2.2.2.tgz#ec551ef37326e6d42872dad1970300f8eb83a073"
+  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.2.2.tgz#ec551ef37326e6d42872dad1970300f8eb83a073"
   integrity sha512-CBKFWExMn46Foo4cldiChEzn7S7SRV+wqiluAb6xmueD/fGyRHIhX8m14vVGgeFWjN540nKCNVj6P21eQjgTuA==
 
 yargs-parser@20.2.4:
