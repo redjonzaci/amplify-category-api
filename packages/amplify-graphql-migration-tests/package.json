@@ -59,6 +59,6 @@
     "graphql-versioned-transformer": "5.2.53"
   },
   "peerDependencies": {
-    "@aws-amplify/amplify-prompts": "^2.6.8"
+    "@aws-amplify/amplify-prompts": "^2.7.1-yarn-berry.0"
   }
 }

@@ -39,7 +39,7 @@
     "graphql-transformer-common": "4.24.6"
   },
   "peerDependencies": {
-    "@aws-amplify/amplify-cli-core": "4.0.4"
+    "@aws-amplify/amplify-cli-core": "4.1.0-yarn-berry.0"
   },
   "jest": {
     "transform": {
