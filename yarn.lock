@@ -61,7 +61,7 @@
     xcode "^2.1.0"
     yargs "^15.1.0"
 
-"@aws-amplify/amplify-appsync-simulator@^2.12.1-yarn-berry.0":
+"@aws-amplify/amplify-appsync-simulator@2.12.1-yarn-berry.0":
   version "2.12.1-yarn-berry.0"
   resolved "https://registry.yarnpkg.com/@aws-amplify/amplify-appsync-simulator/-/amplify-appsync-simulator-2.12.1-yarn-berry.0.tgz#47e73817a3d56ce18bb393fdbb00fff6ec079651"
   integrity sha512-522T8U70NZKiB7DxlSWs+6DMJcP3FXbn85w/IxEydz5ICRJTwZXvdt+7HDXq5s/CZm7STEOiWvqBH0WfQBe8Zg==
@@ -108,7 +108,7 @@
     ora "^4.0.3"
     uuid "^8.3.2"
 
-"@aws-amplify/amplify-category-function@^5.4.0-yarn-berry.0":
+"@aws-amplify/amplify-category-function@5.4.0-yarn-berry.0":
   version "5.4.0-yarn-berry.0"
   resolved "https://registry.yarnpkg.com/@aws-amplify/amplify-category-function/-/amplify-category-function-5.4.0-yarn-berry.0.tgz#e65cfdb4277fcd18fea1d5e9f60c3e580fc32b3f"
   integrity sha512-byH4ZjcvetKoEwvld9wFYK968BhVZ23O/11wYEIdkzYBMUh2Hzsj2RWSJDfCW1sMicAeIrLfunrXUywbUfUhUw==
@@ -252,7 +252,7 @@
     chalk "^4.1.1"
     enquirer "^2.3.6"
 
-"@aws-amplify/amplify-provider-awscloudformation@^8.3.0-yarn-berry.0":
+"@aws-amplify/amplify-provider-awscloudformation@8.3.0-yarn-berry.0":
   version "8.3.0-yarn-berry.0"
   resolved "https://registry.yarnpkg.com/@aws-amplify/amplify-provider-awscloudformation/-/amplify-provider-awscloudformation-8.3.0-yarn-berry.0.tgz#0355eb6d2b3c4946058915053bed38d6619d45ab"
   integrity sha512-gpaLw8zRWMXqQvRjrUZT9tvt9e578s8SuqRwT8ZHFBT2Gi61zzIxkz+KNXbJaH5YIdb/ebynpcG0d5Y+yWC9Eg==
@@ -7539,10 +7539,10 @@ amplify-function-plugin-interface@^1.9.7:
   resolved "https://registry.npmjs.org/amplify-function-plugin-interface/-/amplify-function-plugin-interface-1.9.7.tgz#cd872a8c619f5b50661e7ca073fa59feaed12b28"
   integrity sha512-CMch7pWKtnEP8Y0OC8CTJ0vJSoT82yshG2e7dffkoxk29n7aeHgirMUFKgQ+MUFEXYsU+G5zJ4iksU/VtVQJ4w==
 
-amplify-headless-interface@1.17.4-ym-tagged-release.0, amplify-headless-interface@^1.17.4-yarn-berry.0:
-  version "1.17.4-ym-tagged-release.0"
-  resolved "https://registry.yarnpkg.com/amplify-headless-interface/-/amplify-headless-interface-1.17.4-ym-tagged-release.0.tgz#b45b2eb86f566f99a2ac41ed3afb55ab22c7df24"
-  integrity sha512-1+v/9NlWofpoAAHBeLWAHsnlSR4VXl/H3beANJmJULtwSqU9mIZEmzscHAXoVVBLOwTWFIqqAR8t3FF18OfMzQ==
+amplify-headless-interface@1.17.4-yarn-berry.0:
+  version "1.17.4-yarn-berry.0"
+  resolved "https://registry.yarnpkg.com/amplify-headless-interface/-/amplify-headless-interface-1.17.4-yarn-berry.0.tgz#581b3471508470f8d41da76463967a586fe70103"
+  integrity sha512-VwPbmdrlHqWMYxromX5c54TMMk+uaxs2OeCm96EOFaOxLLLbqa8jpkvz+JMr9XIE+PsltvC638ZPkkCQ7XNqJA==
 
 amplify-nodejs-function-runtime-provider@^2.3.17:
   version "2.4.0"
@@ -7556,7 +7556,7 @@ amplify-nodejs-function-runtime-provider@^2.3.17:
     fs-extra "^8.1.0"
     glob "^7.2.0"
 
-amplify-storage-simulator@^1.9.1-yarn-berry.0:
+amplify-storage-simulator@1.9.1-yarn-berry.0:
   version "1.9.1-yarn-berry.0"
   resolved "https://registry.yarnpkg.com/amplify-storage-simulator/-/amplify-storage-simulator-1.9.1-yarn-berry.0.tgz#3dc9647999b96de63b4da3d050917159be31ea8b"
   integrity sha512-TUOwxj1GCtd0k6miSM9gO111bS/6ObQgTEN/NDkmL9y7+36xrpSe/ESYsOdXJH2GG7J8QwcUtWm+rLQTlpCmIw==
@@ -7574,13 +7574,13 @@ amplify-storage-simulator@^1.9.1-yarn-berry.0:
     xml "^1.0.1"
     xml-js "^1.6.11"
 
-amplify-util-headless-input@^1.9.13-yarn-berry.0:
-  version "1.9.13-ym-tagged-release.0"
-  resolved "https://registry.yarnpkg.com/amplify-util-headless-input/-/amplify-util-headless-input-1.9.13-ym-tagged-release.0.tgz#c4cd98da2ba94217f58af8f60eea806c03b24100"
-  integrity sha512-WUF91LoS+KR1J7th5GqZ6oSnCMTrAM4AO04kChqJubyNTDVuQG9EKIRNE3FAqfBJhasKS2kB0k2L1RKCW+wmhQ==
+amplify-util-headless-input@1.9.13-yarn-berry.0:
+  version "1.9.13-yarn-berry.0"
+  resolved "https://registry.yarnpkg.com/amplify-util-headless-input/-/amplify-util-headless-input-1.9.13-yarn-berry.0.tgz#82583e560562bad7e37560adfd756ee88c3de219"
+  integrity sha512-1E2vhmBB0NHf5Tz0JNamoHX1/J/BZ90Y1Vv09/htDfjcpC8yKSNXD/SFl66XTGYY1yIgfEY0MiuwHHpe0Wosag==
   dependencies:
     ajv "^6.12.6"
-    amplify-headless-interface "1.17.4-ym-tagged-release.0"
+    amplify-headless-interface "1.17.4-yarn-berry.0"
 
 amplify-velocity-template@1.4.12-yarn-berry.0:
   version "1.4.12-yarn-berry.0"

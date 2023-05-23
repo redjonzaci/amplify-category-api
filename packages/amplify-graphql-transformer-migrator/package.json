@@ -36,8 +36,8 @@
   },
   "peerDependencies": {
     "@aws-amplify/amplify-cli-core": "4.1.0-yarn-berry.0",
-    "@aws-amplify/amplify-environment-parameters": "^1.6.1-yarn-berry.0",
-    "@aws-amplify/amplify-prompts": "^2.7.1-yarn-berry.0"
+    "@aws-amplify/amplify-environment-parameters": "1.6.1-yarn-berry.0",
+    "@aws-amplify/amplify-prompts": "2.7.1-yarn-berry.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^8.0.1",

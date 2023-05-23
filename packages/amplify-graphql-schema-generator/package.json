@@ -31,7 +31,7 @@
     "mysql2": "~2.3.3"
   },
   "peerDependencies": {
-    "@aws-amplify/amplify-prompts": "^2.7.1-yarn-berry.0"
+    "@aws-amplify/amplify-prompts": "2.7.1-yarn-berry.0"
   },
   "jest": {
     "transform": {
