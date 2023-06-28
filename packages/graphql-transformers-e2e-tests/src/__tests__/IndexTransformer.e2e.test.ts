@@ -20,13 +20,6 @@ jest.setTimeout(2000000);
 const cf = new CloudFormationClient(region);
 const customS3Client = new S3Client(region);
 const awsS3Client = new S3({ region: region });
-const featureFlags = {
-  getBoolean: jest.fn(),
-  getNumber: jest.fn(),
-  getObject: jest.fn(),
- 
-
-};
 // eslint-disable-next-line spellcheck/spell-checker
 const BUILD_TIMESTAMP = moment().format('YYYYMMDDHHmmss');
 const STACK_NAME = `IndexTransformerTests-${BUILD_TIMESTAMP}`;
@@ -116,9 +109,10 @@ beforeAll(async () => {
   }
 
   const transformer = new GraphQLTransform({
-    featureFlags,
     transformers: [new ModelTransformer(), new PrimaryKeyTransformer(), new IndexTransformer()],
-    sandboxModeEnabled: true,
+    transformParameters: {
+      sandboxModeEnabled: true,
+    },
   });
   const out = transformer.transform(validSchema);
   const finishedStack = await deploy(
