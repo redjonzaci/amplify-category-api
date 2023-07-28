@@ -4,7 +4,6 @@ env:
 phases:
   build:
     commands:
-      - export VERDACCIO_STORAGE_PATH="$CODEBUILD_SRC_DIR/../verdaccio-cache"
       - source ./shared-scripts.sh && _publishToLocalRegistry
 
 artifacts:

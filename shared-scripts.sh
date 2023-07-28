@@ -142,6 +142,8 @@ function _publishToLocalRegistry {
 
     source codebuild_specs/scripts/local_publish_helpers.sh
     startLocalRegistry "$(pwd)/codebuild_specs/scripts/verdaccio.yaml"
+    export VERDACCIO_STORAGE_PATH="$CODEBUILD_SRC_DIR/../verdaccio-cache"
+    echo $VERDACCIO_STORAGE_PATH
     setNpmRegistryUrlToLocal
     git config user.email not@used.com
     git config user.name "Doesnt Matter"
