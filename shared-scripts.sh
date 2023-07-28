@@ -153,6 +153,7 @@ function _publishToLocalRegistry {
     fi
     unsetNpmRegistryUrl
     # copy [verdaccio-cache] to s3
+    codebuild-breakpoint
     storeCache $CODEBUILD_SRC_DIR/../verdaccio-cache verdaccio-cache
 
     _generateChangeLog
