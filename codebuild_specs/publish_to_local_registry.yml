@@ -1,12 +1,10 @@
 version: 0.2
 env:
   shell: bash
-  variables:
-    VERDACCIO_STORAGE_PATH: $CODEBUILD_SRC_DIR/../verdaccio-cache
 phases:
   build:
     commands:
-      - echo $VERDACCIO_STORAGE_PATH
+      - export VERDACCIO_STORAGE_PATH="$CODEBUILD_SRC_DIR/../verdaccio-cache"
       - source ./shared-scripts.sh && _publishToLocalRegistry
 
 artifacts:
