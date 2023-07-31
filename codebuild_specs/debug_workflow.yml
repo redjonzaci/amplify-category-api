@@ -17,3 +17,15 @@ batch:
       depend-on:
         - build_linux
       debug-session: true
+    - identifier: >-
+        mock_api_invalid_input_arguments_schema_versioned_schema_data_access_patterns
+      buildspec: codebuild_specs/run_e2e_tests.yml
+      env:
+        compute-type: BUILD_GENERAL1_MEDIUM
+        variables:
+          TEST_SUITE: >-
+            src/__tests__/mock-api.test.ts|src/__tests__/graphql-v2/invalid-input-arguments.test.ts|src/__tests__/schema-versioned.test.ts|src/__tests__/schema-data-access-patterns.test.ts
+          CLI_REGION: us-east-2
+      depend-on:
+        - publish_to_local_registry
+      debug-session: true
