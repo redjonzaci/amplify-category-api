@@ -31,4 +31,4 @@ batch:
       env:
         compute-type: BUILD_GENERAL1_SMALL
       depend-on:
-        - auth_2_datastore_modelgen_amplify_app_custom_transformers
+        - rds_relational_directives_rds_v2_generate_schema_api_1_resolvers
