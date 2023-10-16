@@ -17,6 +17,7 @@ import {
 } from './test-utils/helpers';
 import { VpcSubnetConfig } from '@aws-amplify/graphql-transformer-interfaces';
 import { PrimaryKeyTransformer } from '@aws-amplify/graphql-index-transformer';
+import { InventoryFormat } from 'aws-cdk-lib/aws-s3';
 
 describe('ModelTransformer:', () => {
   it('should successfully transform simple valid schema', async () => {
