@@ -1,3 +1,5 @@
+import { singular } from 'pluralize';
+import { toPascalCase } from 'graphql-transformer-common';
 import { Field, FieldType, Index, Model } from '../schema-representation';
 
 export abstract class StringDataSourceAdapter {
@@ -44,5 +46,9 @@ export abstract class StringDataSourceAdapter {
     primaryKey && model.setPrimaryKey(primaryKey.getFields());
     indexes.forEach((index) => model.addIndex(index.name, index.getFields()));
     return model;
+  }
+
+  protected getEnumName(name: string): string {
+    return singular(toPascalCase(name.split('_')));
   }
 }
