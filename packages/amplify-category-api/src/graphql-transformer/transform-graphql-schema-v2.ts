@@ -1,4 +1,5 @@
 import path from 'path';
+import { inspect } from 'util';
 import {
   constructSqlDirectiveDataSourceStrategies,
   DDB_AMPLIFY_MANAGED_DATASOURCE_STRATEGY,
@@ -104,6 +105,9 @@ export const transformGraphQLSchemaV2 = async (context: $TSContext, options): Pr
     }
   }
 
+  // console.log('fn: transformGraphQLSchemaV2', resourceDir);
+  // console.log('fn: transformGraphQLSchemaV2', inspect(resources, { depth: null }));
+
   const previouslyDeployedBackendDir = options.cloudBackendDirectory;
   if (!previouslyDeployedBackendDir) {
     if (resources.length > 0) {
@@ -113,6 +117,8 @@ export const transformGraphQLSchemaV2 = async (context: $TSContext, options): Pr
       }
     }
   }
+
+  // console.log('fn: transformGraphQLSchemaV2', inspect(previouslyDeployedBackendDir, { depth: null }));
 
   const parametersFilePath = path.join(resourceDir, PARAMETERS_FILENAME);
 
@@ -174,6 +180,7 @@ export const transformGraphQLSchemaV2 = async (context: $TSContext, options): Pr
   // The buildConfig.projectConfig returned by `generateTransformerOptions` is not actually compatible with DataSourceStrategiesProvider. We
   // will correct that in buildAPIProject.
   const buildConfig: TransformerProjectOptions = await generateTransformerOptions(context, options);
+  console.log('fn: transformGraphQLSchemaV2', inspect(buildConfig, { depth: null }));
   if (!buildConfig) {
     return undefined;
   }
